@@ -24,6 +24,10 @@ public class SailService {
 
     }
 
+    public void saveSail(Sail sail){
+        sailRepository.save(sail);
+    }
+
 
 
 }
