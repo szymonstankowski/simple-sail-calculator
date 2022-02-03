@@ -1,11 +1,9 @@
 package pl.hanawind.sailcalculator.sail;
 
 import lombok.Data;
+import pl.hanawind.sailcalculator.user.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -22,6 +20,8 @@ public class Sail {
     private int slidesNumber;
     private int luffLength;
     private int boomLength;
+
+
 
 
 }

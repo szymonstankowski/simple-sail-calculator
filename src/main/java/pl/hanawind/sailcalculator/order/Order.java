@@ -2,6 +2,8 @@ package pl.hanawind.sailcalculator.order;
 
 import lombok.Data;
 import pl.hanawind.sailcalculator.sail.Sail;
+import pl.hanawind.sailcalculator.user.User;
+
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,7 +18,7 @@ public class Order {
     private Long id;
     private LocalDateTime dateTime;
 
-    @OneToMany
-    List<Sail> sailList;
+
+
 
 }
