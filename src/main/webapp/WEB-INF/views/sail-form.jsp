@@ -1,32 +1,22 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <body>
 <a href="/newSail">Wroc!</a><br/>
-<form:form method="post" action="/calculateNewSail" modelAttribute="sail">
-    Imię:
-    <input type="text" name="name"/><br/>
-    Nazwisko:
-    <input type="text" name="lastName"/><br/>
-    Nr telefonu:
-    <input type="text" name="phoneNumber"/><br/>
-    Email:
-    <input type="text" name="email"/><br/>
+<form:form method="post" modelAttribute="sail">
 
-    <br/><hr>
-    Parametry zagla:
-    <input type= "number" name="luffLength" value="Długość liku przedniego"/><br/>
-    <input type= "number" name="boomLength" value="Długość liku dolnego"/><br/>
-    TYP:
-    <input type= "checkbox" name="regularSail" value= "Rekreacyjny"><br/>
-    <input type= "checkbox" name="racingSail" value= "Regatowy"><br/>
 
-    Osprzęt:
-    <input type= "radio" name="slides" value="Pełzacze"><br/>
-    <input type= "radio" name="luffLine" value="Liklina"><br/>
-    <input type="submit" value="Oblicz"><br/>
-    <hr>
+    Lik przedni:
+    <form:input type="number" path="luffLength"/><br/>
+    Lik dolny:
+    <form:input type="number" path="boomLength"/><br/>
+
+    <form:radiobuttons items="${sailTypes}" path="sailType" itemLabel="name" itemValue="id"></form:radiobuttons><br/>
+    <form:radiobuttons items="${mountingTypes}" path="sailMountingSystem" itemLabel="name" itemValue="id"></form:radiobuttons>
+
+    <input type="submit" value="SAVE SAIL"><br/>
 
 </form:form>
 <a href="/index">Up!</a><br/>
