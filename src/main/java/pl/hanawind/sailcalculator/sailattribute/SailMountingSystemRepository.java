@@ -1,8 +1,10 @@
-package pl.hanawind.sailcalculator.repository;
+package pl.hanawind.sailcalculator.sailattribute;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.hanawind.sailcalculator.sailattribute.SailMountingSystem;
+
+import java.util.List;
 
 public interface SailMountingSystemRepository extends JpaRepository<SailMountingSystem, Long> {
+
 
 }

@@ -2,12 +2,10 @@ package pl.hanawind.sailcalculator.sail;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.hanawind.sailcalculator.repository.SailMountingSystemRepository;
-import pl.hanawind.sailcalculator.repository.SailTypeRepository;
+
 import pl.hanawind.sailcalculator.sailattribute.SailMountingSystem;
 import pl.hanawind.sailcalculator.sailattribute.SailType;
 
@@ -18,7 +16,6 @@ public class SailController {
 
     private final SailService sailService;
 
-
     public SailController(SailService sailService) {
         this.sailService = sailService;
     }
@@ -28,23 +25,20 @@ public class SailController {
         model.addAttribute("sail", new Sail());
         return "sail-form";
     }
+
     @PostMapping("/newSail")
     public String newSail(Sail sail) {
         sailService.saveSail(sail);
-            return "redirect:/newSail";
-
+        return "redirect:/newSail";
     }
 
 
     @ModelAttribute("sailTypes")
-    public List<SailType> sailTypeList(){
-        return sailService.sailTypeList();
+    public List<SailType> sailTypes(){
+        return sailService.getAllSailTypes();
     }
-
     @ModelAttribute("mountingTypes")
-    public List<SailMountingSystem> sailMountingSystemList(){
-        return sailService.sailMountingSystemList();
+    public List<SailMountingSystem> sailMountingTypes(){
+        return sailService.getAllSailMountingSystems();
     }
-
-
 }
