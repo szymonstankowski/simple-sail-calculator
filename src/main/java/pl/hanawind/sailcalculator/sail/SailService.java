@@ -29,11 +29,15 @@ public class SailService {
     }
 
     public double calucalteSailArea(int boomLength,int luffLength){
-        return (boomLength*luffLength)/2;
+        return ((boomLength*luffLength)/2)/1000;
     }
 
     public double calculateSailClothPrice(int boomLength, int luffLength){
         return calucalteSailArea(boomLength, luffLength)* CLOTH_PRICE;
+    }
+
+    public int slidersNumber(Sail sail, double SLIDERS_DENSITY){
+        return (int) (sail.getLuffLength() / SLIDERS_DENSITY);
     }
 
     public double slidersCost(Sail sail,double SINGLE_SLIDER_COST, double SLIDERS_DENSITY){
@@ -53,6 +57,7 @@ public class SailService {
             clothPrice = calculateSailClothPrice(sail.getBoomLength(), sail.getBoomLength());
             sail.setSailPrice(clothPrice + luffLineCost(sail,LUFF_LINE_COST_PER_METER));
         }
+        sail.setSlidesNumber(slidersNumber(sail,SLIDERS_DENSITY));
         sail.setSailArea(calucalteSailArea(sail.getBoomLength(), sail.getLuffLength()));
         sailRepository.save(sail);
     }
