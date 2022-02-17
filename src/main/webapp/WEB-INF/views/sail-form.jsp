@@ -1,5 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 <body>
@@ -11,7 +13,7 @@
     <form:input type="number" path="boomLength"></form:input><br/>
 
     <form:radiobuttons items="${sailTypes}" path="sailType" itemLabel="name" itemValue="id"></form:radiobuttons><br/>
-    <form:radiobuttons items="${mountingTypes}" path="sailMountingSystem" itemLabel="name" itemValue="id"></form:radiobuttons>
+    <form:radiobuttons items="${mountingTypes}" path="sailMountingSystem" itemLabel="name" itemValue="id"></form:radiobuttons><br/>
 
     <input type="submit" value="SAVE SAIL"><br/>
 </form:form>
