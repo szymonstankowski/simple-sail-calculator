@@ -3,12 +3,7 @@ package pl.hanawind.sailcalculator.user;
 
 import lombok.Data;
 
-import pl.hanawind.sailcalculator.order.Order;
-import pl.hanawind.sailcalculator.sail.Sail;
-
 import javax.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Data

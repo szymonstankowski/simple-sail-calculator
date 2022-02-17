@@ -1,4 +1,4 @@
-package pl.hanawind.sailcalculator.order;
+package pl.hanawind.sailcalculator.disposition;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -6,28 +6,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
-public class OrderController {
+public class DispositionController {
 
-    private final OrderService orderService;
+    private final DispositionService dispositionService;
 
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
+    public DispositionController(DispositionService dispositionService) {
+        this.dispositionService = dispositionService;
     }
 
     @GetMapping("/neworder")
     public String newOrder(Model model){
-        model.addAttribute("order", new Order());
+        model.addAttribute("order", new Disposition());
         return "order-send";
     }
 
     @PostMapping("/addorder")
-    public String addOrder(BindingResult result, Order order){
+    public String addOrder(BindingResult result, @Valid Disposition disposition){
         if (result.hasErrors()){
             return "redirect:/neworder";
         }
 
-        orderService.addOrder(order);
+        dispositionService.addOrder(disposition);
         return "redirect:/user-dashboard";
     }
 }

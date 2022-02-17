@@ -25,8 +25,9 @@
     Osprzęt:
     <input type= "radio" name="slides" value="Pełzacze"><br/>
     <input type= "radio" name="luffLine" value="Liklina"><br/>
-    <input type="submit" value="Dodaj nowa rosline"><br/>
+    <input type="submit" value="Oblicz"><br/>
     <hr>
+
 </form:form>
 <a href="/index">Up!</a><br/>
 
