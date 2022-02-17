@@ -1,15 +1,28 @@
 package pl.hanawind.sailcalculator.sail;
 
 import org.springframework.stereotype.Service;
+import pl.hanawind.sailcalculator.repository.SailMountingSystemRepository;
+import pl.hanawind.sailcalculator.repository.SailTypeRepository;
+import pl.hanawind.sailcalculator.sailattribute.SailMountingSystem;
+import pl.hanawind.sailcalculator.sailattribute.SailType;
+
+import java.util.List;
 
 @Service
 public class SailService {
 
     private final SailRepository sailRepository;
+    private final SailTypeRepository sailTypeRepository;
+    private final SailMountingSystemRepository sailMountingSystemRepository;
+
+
+
     private final double COST = 127.0;
 
-    public SailService(SailRepository sailRepository) {
+    public SailService(SailRepository sailRepository, SailTypeRepository sailTypeRepository, SailMountingSystemRepository sailMountingSystemRepository) {
         this.sailRepository = sailRepository;
+        this.sailTypeRepository = sailTypeRepository;
+        this.sailMountingSystemRepository = sailMountingSystemRepository;
     }
 
     public double calculateSailArea(int a, int h){
@@ -29,5 +42,12 @@ public class SailService {
     }
 
 
+    public List<SailType> sailTypeList(){
+        return sailTypeRepository.findAll();
+    }
 
+    public List<SailMountingSystem> sailMountingSystemList() {
+        return sailMountingSystemRepository.findAll();
+
+    }
 }
