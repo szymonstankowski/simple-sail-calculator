@@ -57,7 +57,7 @@ public class SailService {
             clothPrice = calculateSailClothPrice(sail.getBoomLength(), sail.getBoomLength());
             sail.setSailPrice(clothPrice + luffLineCost(sail,LUFF_LINE_COST_PER_METER));
         }
-        sail.setSlidesNumber(slidersNumber(sail,SLIDERS_DENSITY));
+        sail.setSlidersNumber(slidersNumber(sail,SLIDERS_DENSITY));
         sail.setSailArea(calucalteSailArea(sail.getBoomLength(), sail.getLuffLength()));
         sailRepository.save(sail);
     }
