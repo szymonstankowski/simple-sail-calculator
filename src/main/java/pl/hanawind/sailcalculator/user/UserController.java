@@ -1,18 +1,24 @@
 package pl.hanawind.sailcalculator.user;
 
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.hanawind.sailcalculator.sail.SailService;
+import pl.hanawind.sailcalculator.sailattribute.SailType;
+
+import java.util.List;
 
 @RestController
 public class UserController {
 
     private final UserService userService;
+    private final SailService sailService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, SailService sailService) {
         this.userService = userService;
+        this.sailService = sailService;
     }
 
 
@@ -22,15 +28,16 @@ public class UserController {
         return "user-form";
     }
 
-    @PostMapping("/adduser")
-    public String addUser(User user, BindingResult result){
-        if (result.hasErrors()){
-            return "redirect:/newuser";
-        }
+    @PostMapping("/newuser")
+    public String addUser(User user){
+
         userService.addUser(user);
         //todo napisac jsp z info o przeslaniu na adres mailowy tokena do weryfikacji konta ktory
         // bedzie aktywowal konto i kierowan na strone logowania
         // zaimplementowac spring security
         return "confirm-account";
     }
+
+
+
 }

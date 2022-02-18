@@ -5,6 +5,7 @@ import pl.hanawind.sailcalculator.sailattribute.SailMountingSystem;
 import pl.hanawind.sailcalculator.sailattribute.SailMountingSystemRepository;
 import pl.hanawind.sailcalculator.sailattribute.SailType;
 import pl.hanawind.sailcalculator.sailattribute.SailTypeRepository;
+import pl.hanawind.sailcalculator.user.User;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -69,6 +70,10 @@ public class SailService {
 
     public List<SailType> getAllSailTypes(){
         return sailTypeRepository.findAll();
+    }
+
+    public List<Sail> getAllUserSails(User user){
+        return sailRepository.findAllSailsByUserId(user.getId());
     }
 
 
