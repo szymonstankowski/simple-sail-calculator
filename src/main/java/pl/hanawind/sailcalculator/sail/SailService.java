@@ -6,6 +6,7 @@ import pl.hanawind.sailcalculator.sailattribute.SailMountingSystemRepository;
 import pl.hanawind.sailcalculator.sailattribute.SailType;
 import pl.hanawind.sailcalculator.sailattribute.SailTypeRepository;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Service
@@ -28,12 +29,12 @@ public class SailService {
         this.sailTypeRepository = sailTypeRepository;
     }
 
-    public double calucalteSailArea(int boomLength,int luffLength){
+    public double calculateSailArea(int boomLength, int luffLength){
         return ((boomLength*luffLength)/2)/1000;
     }
 
     public double calculateSailClothPrice(int boomLength, int luffLength){
-        return calucalteSailArea(boomLength, luffLength)* CLOTH_PRICE;
+        return calculateSailArea(boomLength, luffLength)* CLOTH_PRICE;
     }
 
     public int slidersNumber(Sail sail, double SLIDERS_DENSITY){
@@ -58,7 +59,7 @@ public class SailService {
             sail.setSailPrice(clothPrice + luffLineCost(sail,LUFF_LINE_COST_PER_METER));
         }
         sail.setSlidersNumber(slidersNumber(sail,SLIDERS_DENSITY));
-        sail.setSailArea(calucalteSailArea(sail.getBoomLength(), sail.getLuffLength()));
+        sail.setSailArea(calculateSailArea(sail.getBoomLength(), sail.getLuffLength()));
         sailRepository.save(sail);
     }
 
