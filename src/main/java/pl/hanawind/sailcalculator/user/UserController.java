@@ -6,9 +6,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import pl.hanawind.sailcalculator.sail.Sail;
 import pl.hanawind.sailcalculator.sail.SailService;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.util.List;
 
 
 @Controller
@@ -37,7 +40,19 @@ public class UserController {
         userService.addUser(user);
         //todo zamienic na przejscie do widoku info o sprawdzeniu emaila w celu weryfikacji
         // po kliknieciu w link w mailu przejscie do strony logowania i dalej do panelu usera
-        return "user-form";
+        return "redirect:/user";
+    }
+
+    @GetMapping("/user")
+    public String userSails(Model model, Principal principal){
+
+        List<Sail> allUserSails = sailService
+                .getAllUserSails(userService
+                        .getUser(principal
+                                .getName()));
+
+        model.addAttribute("sails", allUserSails);
+        return "user-dashboard";
     }
 
 

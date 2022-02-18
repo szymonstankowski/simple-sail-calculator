@@ -28,6 +28,14 @@ public class Sail {
     @NotBlank(message = "To pole nie może być puste")
     private int boomLength;
 
+    @Column(name = "DŁUGOŚĆ_LIKU_WOLNEGO")
+    @NotBlank(message = "To pole nie może być puste")
+    private int leechLength;
+
+    @Column(name = "LISTWY")
+    @NotBlank
+    private boolean battens;
+
     @Column(name = "CENA_ŻAGLA")
     private  double sailPrice;
 

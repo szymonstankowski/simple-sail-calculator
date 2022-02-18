@@ -12,9 +12,12 @@ public class UserService {
     }
 
 
-
     public void addUser(User user) {
         userRepository.save(user);
+    }
+
+    public User getUser(String name){
+        return userRepository.findByName(name);
     }
 
 }
