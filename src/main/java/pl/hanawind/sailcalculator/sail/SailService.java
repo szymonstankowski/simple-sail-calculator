@@ -73,7 +73,7 @@ public class SailService {
     }
 
     public List<Sail> getAllUserSails(User user){
-        return sailRepository.findAllSailsByUserId(user.getId());
+        return sailRepository.findAllByUser(user);
     }
 
 

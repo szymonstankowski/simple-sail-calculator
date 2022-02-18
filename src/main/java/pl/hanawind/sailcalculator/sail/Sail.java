@@ -3,6 +3,7 @@ package pl.hanawind.sailcalculator.sail;
 import lombok.Data;
 import pl.hanawind.sailcalculator.sailattribute.SailMountingSystem;
 import pl.hanawind.sailcalculator.sailattribute.SailType;
+import pl.hanawind.sailcalculator.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -38,6 +39,11 @@ public class Sail {
 
     @ManyToOne
     SailMountingSystem sailMountingSystem;
+
+    @ManyToOne
+    User user;
+
+
 
 
 

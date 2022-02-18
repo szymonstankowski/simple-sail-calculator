@@ -34,10 +34,6 @@ public class User {
     private String email;
 
 
-    @OneToMany
-    @JoinColumn(name = "USER_SAIL")
-    List<Sail> sail = new ArrayList<>();
-
 
 
 }
