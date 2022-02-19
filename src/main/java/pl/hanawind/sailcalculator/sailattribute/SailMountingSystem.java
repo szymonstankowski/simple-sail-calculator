@@ -15,6 +15,7 @@ public class SailMountingSystem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "SYSTEM_MOCOWANIA_DO_MASZTU")
     @NotBlank(message = "Wybierz system")
     private String name;
 

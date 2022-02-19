@@ -13,6 +13,7 @@ public class SailType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "TYP_ŻAGLA")
     @NotBlank(message = "Wybierz typ żagla.")
     private String name;
 
