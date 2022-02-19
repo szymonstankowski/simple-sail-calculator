@@ -52,7 +52,7 @@ public class SailService {
 
     public void saveSail(Sail sail){
         double clothPrice;
-        if (sail.sailMountingSystem.equals(1)){
+        if (sail.getSailMountingSystem().equals(1)){
             clothPrice = calculateSailClothPrice(sail.getBoomLength(), sail.getLuffLength());
             sail.setSailPrice(clothPrice + slidersCost(sail,SINGLE_SLIDER_COST, SLIDERS_DENSITY));
         }else {
@@ -75,9 +75,6 @@ public class SailService {
     public List<Sail> getAllUserSails(User user){
         return sailRepository.findAllByUser(user);
     }
-
-
-
 
 
 }

@@ -3,15 +3,11 @@ package pl.hanawind.sailcalculator.user;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import pl.hanawind.sailcalculator.sail.Sail;
+import org.springframework.web.bind.annotation.*;
 import pl.hanawind.sailcalculator.sail.SailService;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.List;
 
 
 @Controller
@@ -20,9 +16,11 @@ public class UserController {
     private final UserService userService;
     private final SailService sailService;
 
+
     public UserController(UserService userService, SailService sailService) {
         this.userService = userService;
         this.sailService = sailService;
+
     }
 
 
@@ -44,17 +42,11 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public String userSails(Model model, Principal principal){
+    public String userSails(Model model){
 
-        List<Sail> allUserSails = sailService
-                .getAllUserSails(userService
-                        .getUser(principal
-                                .getName()));
-
-        model.addAttribute("sails", allUserSails);
+        model.addAttribute("sails", userService.userSails(userService.getById(1L)));
         return "user-dashboard";
+
     }
-
-
 
 }

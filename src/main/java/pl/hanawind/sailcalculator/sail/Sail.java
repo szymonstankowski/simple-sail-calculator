@@ -43,13 +43,13 @@ public class Sail {
     private double sailArea;
 
     @ManyToOne
-    SailType sailType;
+    private SailType sailType;
 
     @ManyToOne
-    SailMountingSystem sailMountingSystem;
+    private SailMountingSystem sailMountingSystem;
 
     @ManyToOne
-    User user;
+    private User user;
 
 
 

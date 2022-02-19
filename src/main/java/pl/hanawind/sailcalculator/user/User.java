@@ -17,23 +17,24 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "IMIĘ")
+
     @NotBlank(message = "To pole nie może być puste")
     private String name;
 
-    @Column(name = "NAZWISKO")
+
     @NotBlank(message ="To pole nie może być puste" )
     private String lastName;
 
-    @Column(name = "NUMER_TELEFONU")
+
     @NotBlank(message ="To pole nie może być puste" )
     private String phoneNumber;
 
-    @Column(name = "E-MAIL")
     @NotBlank(message ="To pole nie może być puste" )
     private String email;
 
 
-
-
+    @Override
+    public String toString() {
+        return  name;
+    }
 }
