@@ -10,6 +10,7 @@
         SAIL ${sail.id}: ${sail}  </br>
         </br>
 </c:forEach>
+<a href="/user">Moje żagle</a><br/>
 
 
 </body>

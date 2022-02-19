@@ -50,6 +50,7 @@ public class SailService {
         return sail.getLuffLength() * LUFF_LINE_COST_PER_METER;
     }
 
+
     public void saveSail(Sail sail){
         double clothPrice;
         if (sail.getSailMountingSystem().equals(1)){

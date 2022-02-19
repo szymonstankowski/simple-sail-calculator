@@ -23,7 +23,7 @@ public class DispositionController {
         return "order-send";
     }
 
-    @PostMapping("/addorder")
+    @PostMapping("/neworder")
     public String addOrder(BindingResult result, @Valid Disposition disposition){
         if (result.hasErrors()){
             return "redirect:/neworder";

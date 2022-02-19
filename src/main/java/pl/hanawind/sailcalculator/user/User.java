@@ -2,12 +2,10 @@ package pl.hanawind.sailcalculator.user;
 
 
 import lombok.Data;
-import pl.hanawind.sailcalculator.sail.Sail;
-
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Data
@@ -30,6 +28,7 @@ public class User {
     private String phoneNumber;
 
     @NotBlank(message ="To pole nie może być puste" )
+    @Email
     private String email;
 
 

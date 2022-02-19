@@ -6,7 +6,7 @@
 <html>
 <body>
 <a href="/newuser">Wroc!</a><br/>
-<form:form method="post" action="" modelAttribute="user">
+<form:form method="post" action="/newuser" modelAttribute="user">
     Imię:<br/>
     <form:input type="text" path="name"></form:input><br/>
     Nazwisko:<br/>

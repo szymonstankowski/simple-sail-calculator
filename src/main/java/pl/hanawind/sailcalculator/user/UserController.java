@@ -31,13 +31,11 @@ public class UserController {
     }
 
     @PostMapping("/newuser")
-    public String addUser(@RequestBody @Valid User user, BindingResult result){
+    public String addUser(@Valid User user, BindingResult result){
         if (result.hasErrors()){
             return "redirect:/newuser";
         }
         userService.addUser(user);
-        //todo zamienic na przejscie do widoku info o sprawdzeniu emaila w celu weryfikacji
-        // po kliknieciu w link w mailu przejscie do strony logowania i dalej do panelu usera
         return "redirect:/user";
     }
 

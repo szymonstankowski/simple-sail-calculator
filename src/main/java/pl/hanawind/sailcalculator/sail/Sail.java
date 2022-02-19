@@ -17,29 +17,26 @@ public class Sail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ILOŚĆ_PEŁZACZY")
-    private int slidersNumber;
 
-    @Column(name = "DŁUGOŚĆ_LIKU_PRZEDNIEGO")
     @NotBlank(message = "To pole nie może być puste")
     private int luffLength;
 
-    @Column(name = "DŁUGOŚĆ_LIKU_DOLNEGO")
+
     @NotBlank(message = "To pole nie może być puste")
     private int boomLength;
 
-    @Column(name = "DŁUGOŚĆ_LIKU_WOLNEGO")
+
     @NotBlank(message = "To pole nie może być puste")
     private int leechLength;
 
-    @Column(name = "LISTWY")
+
     @NotBlank
     private boolean battens;
 
-    @Column(name = "CENA_ŻAGLA")
-    private  double sailPrice;
 
-    @Column(name = "POWIERZCHNIA_ŻAGLA")
+    private double sailPrice;
+
+
     private double sailArea;
 
     @ManyToOne
@@ -51,11 +48,11 @@ public class Sail {
     @ManyToOne
     private User user;
 
+    private boolean isRacing;
+
+    private boolean sliders;
 
 
-
-
-
-
-
+    public void setSlidersNumber(int slidersNumber) {
+    }
 }
